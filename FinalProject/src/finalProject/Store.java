@@ -9,17 +9,9 @@ import java.util.List;
  * @author rebur
  */
 public class Store {
-    private List<Aisle> aisles;
-    public Account currentAccount;
-    
-    //List of Accounts in the database.
-    private static final Account[] accounts = {
-        new Account("Alex", "password1", new Cart()),
-        new Account("John", "password2", new Cart()),
-        Manager.getInstance() //Manager is a Singleton.
-    };
 
     public Store() {
+        this.transactions = new ArrayList<Transaction>();
         this.aisles = new ArrayList<Aisle>();
         this.createAisles();
     }
@@ -109,4 +101,21 @@ public class Store {
         }
         return null;
     }
+    
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+    
+    
+    private List<Aisle> aisles;
+    public Account currentAccount;
+    
+    //List of Accounts in the database.
+    private static final Account[] accounts = {
+        new Account("Alex", "password1", new Cart()),
+        new Account("John", "password2", new Cart()),
+        Manager.getInstance() //Manager is a Singleton.
+    };
+    
+    private List<Transaction> transactions;
 }

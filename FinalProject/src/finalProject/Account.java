@@ -2,7 +2,7 @@ package finalProject;
 
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class Account {
 

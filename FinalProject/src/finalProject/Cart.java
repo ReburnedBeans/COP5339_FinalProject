@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class Cart {
 
@@ -22,6 +22,7 @@ public class Cart {
      */
     public void addItem(Item item) {
         items.add(item);
+        total += item.getPrice();
     }
 
     /**
@@ -30,6 +31,7 @@ public class Cart {
      */
     public void removeItem(Item item) {
         items.remove(item);
+        total -= item.getPrice();
     }
 
     /**
@@ -40,5 +42,14 @@ public class Cart {
         return items;
     }
     
+    /**
+     * Returns the total of the Cart.
+     * @return total    The total of the items in the cart.
+     */
+    public double getTotal() {
+        return total;
+    }
+    
     private List<Item> items;
+    private double total;
 }

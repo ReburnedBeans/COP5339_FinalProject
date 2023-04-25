@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class LoginViewUI extends JFrame {
     private JLabel usernameLabel;

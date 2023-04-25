@@ -1,46 +1,57 @@
 package finalProject;
 
-import java.util.List;
-
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class DashboardController {
-
-    private DashboardViewUI view;
-    private Store store;
-
+    /**
+     * Constructor that creates the Controller function.
+     * @param view      the current DashboardViewUI.
+     * @param store     the store model.
+     */
     public DashboardController(DashboardViewUI view, Store store) {
         this.view = view;
         this.store = store;
     }
 
+    /**
+     * Changes view to the AisleViewUI.
+     */
     public void browseByAisle() {
-        //Display AisleViewUI
         AisleViewUI aisleView = new AisleViewUI(store);
-        aisleView.setVisible(true);
-
-        //Hide DashboardViewUI
-        view.setVisible(false);
+        aisleView.setVisible(true); //Display AisleViewUI
+        view.setVisible(false); //Hides the DashboardViewUI
     }
     
+    /**
+     * Changes view to the SearchViewUI.
+     */
     public void searchForItem() {
-        // Create and show the SearchViewUI
-            SearchViewUI searchView = new SearchViewUI();
-            searchView.setVisible(true);
-
-            // Hide the DashboardViewUI
-            view.setVisible(false);
+        SearchViewUI searchView = new SearchViewUI();
+        searchView.setVisible(true); //Display SearchViewUI
+        view.setVisible(false); //Hides the DashboardViewUI
     }
     
+    /**
+     * Changes view to the CheckoutViewUI.
+     */
     public void proceedToCheckout() {
-        // Create and show the CheckoutViewUI
-            CheckoutViewUI checkoutView = new CheckoutViewUI();
-            checkoutView.setVisible(true);
-
-            // Hide the DashboardViewUI
-            view.setVisible(false);
+        CheckoutViewUI checkoutView = new CheckoutViewUI(store);
+        checkoutView.setVisible(true); //Display CheckoutViewUI
+        view.setVisible(false); //Hides the DashboardViewUI
     }
+    
+    /**
+     * Changes view to the LoginViewUI.
+     */
+    public void logout() {
+        LoginViewUI checkoutView = new LoginViewUI(store);
+        checkoutView.setVisible(true); //Display LoginViewUI
+        view.setVisible(false); //Hides the DashboardViewUI
+    }
+    
+    private final DashboardViewUI view;
+    private final Store store;
 }
 

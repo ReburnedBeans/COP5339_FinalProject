@@ -1,13 +1,10 @@
 package finalProject;
 
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
 
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class AisleController {
 
@@ -15,41 +12,33 @@ public class AisleController {
         this.view = view;
         this.store = store;
         
-        view.addAisleButtonListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //Retrieves aisle information.
-                view.selectAisle(view.getAisleNumber());
-            }
+        //adds a button listener for the user selecting an aisle.
+        view.addAisleButtonListener((ActionEvent e) -> {
+            //Retrieves aisle information.
+            view.selectAisle(view.getAisleNumber());
         });
         
-        view.addItemButtonListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                
-                view.addToCart();
-
-                //Display DashboardViewUI
-                DashboardViewUI dashView = new DashboardViewUI(store);
-                dashView.setVisible(true);
-
-                    //Hide AisleViewUI
-                    view.setVisible(false);
-
-                
-            }
+        //adds a button listener for the user adding an item to their cart.
+        view.addItemButtonListener((ActionEvent e) -> {
+            view.addToCart(); //tells the AisleViewUI to add the item to cart.
+            
+            //Returns the User to a dashboard.
+            DashboardViewUI dashView = new DashboardViewUI(store);
+            dashView.setVisible(true);
+            
+            view.setVisible(false); //Hides the AisleViewUI
         });
         
-        view.addCancelButtonListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //Display DashboardViewUI
-                DashboardViewUI dashView = new DashboardViewUI(store);
-                dashView.setVisible(true);
-
-                //Hide AisleViewUI
-                view.setVisible(false);
-            }
+        //adds a button listener for the user cancelling the AisleViewUI.
+        view.addCancelButtonListener((ActionEvent e) -> {
+            //Returns the User to a dashboard.
+            DashboardViewUI dashView = new DashboardViewUI(store);
+            dashView.setVisible(true);
+            
+            view.setVisible(false); //Hides the AisleViewUI
         });
     }
     
-    private AisleViewUI view;
-    private Store store;
+    private final AisleViewUI view;
+    private final Store store;
 }
