@@ -31,6 +31,8 @@ public class SearchViewUI extends JFrame {
         searchLabel = new JLabel("Search for Item:");
         searchField = new JTextField();
         searchButton = new JButton("Search");
+        addToCartButton = new JButton("Add to Cart");
+        itemComboBox = new JComboBox();
         
         //Create a new AisleController instance to handle button clicks.
         SearchController searchController = new SearchController(this, store);
@@ -40,8 +42,7 @@ public class SearchViewUI extends JFrame {
         searchPanel.add(searchField);
         searchPanel.add(searchButton);
         searchPanel.add(cancelButton);
-        addToCartButton = new JButton("Add to Cart");
-        itemComboBox = new JComboBox();
+
         
         //Creates the Container.
         containerPanel = getContentPane();
@@ -72,8 +73,17 @@ public class SearchViewUI extends JFrame {
     }
     
     /**
-     *
-     * @param matchingProduct
+     * Adds an action listener to the searchButton.
+     * @param listener  the event listener. 
+     */
+    public void addItemButtonListener(ActionListener listener) {
+        addToCartButton.addActionListener(listener);
+    }
+    
+    /**
+     * Changes the ViewUI to display a JComboBox containing the items matching
+     * inputted string.
+     * @param matchingProduct   list of matching Items.
      */
     public void displayMatchingProducts(ArrayList<Item> matchingProduct) {
         containerPanel.removeAll(); //clears the previous view.
@@ -99,6 +109,7 @@ public class SearchViewUI extends JFrame {
         //Creates a Label and TextBox for quantity.
         JLabel quantityLabel = new JLabel("Enter the quantity:");
         quantityField = new JTextField();
+        cancelButton = new JButton("Cancel");
 
         //Adds the J-Objects to the Panel.
         searchPanel.add(itemLabel);
@@ -106,10 +117,11 @@ public class SearchViewUI extends JFrame {
         searchPanel.add(quantityLabel);
         searchPanel.add(quantityField);
         searchPanel.add(addToCartButton);
+        searchPanel.add(cancelButton);
+        
 
         //Resets the container with the new Panel.
         containerPanel.add(searchPanel, BorderLayout.NORTH);
-        
         containerPanel.revalidate();
         containerPanel.repaint();       //Repaints the container.
     }
@@ -117,12 +129,12 @@ public class SearchViewUI extends JFrame {
     private Container containerPanel;
     private JPanel searchPanel;
     private final JLabel searchLabel;
-    private final JButton cancelButton;
+    private JButton cancelButton;
     private final JButton searchButton;
     private final JButton addToCartButton;
     public JTextField searchField;
-    private JTextField quantityField;
-    private JComboBox<Item> itemComboBox;
+    public JTextField quantityField;
+    public JComboBox<Item> itemComboBox;
 
     
 }

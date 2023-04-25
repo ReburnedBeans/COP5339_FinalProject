@@ -16,7 +16,7 @@ public class ManagerViewUI extends JFrame {
     private JButton financeButton;
     private ManagerController managerController;
 
-    public ManagerViewUI(Manager manager) {
+    public ManagerViewUI(Manager manager, Store store) {
         setTitle("Manager Dashboard");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
@@ -27,7 +27,7 @@ public class ManagerViewUI extends JFrame {
         financeButton = new JButton("View Finances");
         
         // Create a new DashboardController instance to handle button clicks
-        managerController = new ManagerController(this);
+        managerController = new ManagerController(this, store);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3, 1));

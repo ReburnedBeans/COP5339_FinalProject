@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -102,7 +103,8 @@ public class AisleViewUI extends JFrame {
         if (itemComboBox != null){
             itemComboBox.removeAllItems();
         }
-        
+
+
         //Adds every product from the Aisle to the JComboBox.
         for (Item product : currentAisle.getItems()) {
             itemComboBox.addItem(product);
@@ -152,7 +154,7 @@ public class AisleViewUI extends JFrame {
     private JPanel aislePanel;
     private JPanel itemPanel;
     private final JLabel aisleLabel;
-    private JComboBox<Item> itemComboBox;
+    private JComboBox itemComboBox;
     private JTextField aisleNumberField;
     private final JButton aisleButton;
     private final JButton cancelButton;

@@ -8,15 +8,17 @@ import java.awt.event.ActionListener;
  * @author rebur
  */
 public class ManagerController {
-    private ManagerViewUI view;
+    private final ManagerViewUI view;
+    private final Store store;
 
-    public ManagerController(ManagerViewUI view) {
+    public ManagerController(ManagerViewUI view, Store store) {
         this.view = view;
+        this.store = store;
     }
 
     public void viewTransactionHistory() {
         // Create and show the TransactionViewUI
-        TransactionViewUI transactionView = new TransactionViewUI();
+        TransactionViewUI transactionView = new TransactionViewUI(store);
         transactionView.setVisible(true);
 
         // Hide the ManagerViewUI

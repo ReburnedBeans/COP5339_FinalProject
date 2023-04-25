@@ -53,7 +53,7 @@ public class CheckoutViewUI extends JFrame {
         //Designs the layout for the ViewUI.
         pack();
         setTitle("Checkout View");
-        setSize(300, 300);
+        setSize(500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);

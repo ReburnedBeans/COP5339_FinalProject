@@ -11,12 +11,19 @@ public class Product implements Item {
         this.price = price;
     }
     
+    @Override
     public String getName() {
         return name;
     }
     
+    @Override
     public double getPrice() {
         return price;
+    }
+    
+    @Override
+    public String toString() {
+        return this.getName();
     }
     
     public boolean contains(String text) {

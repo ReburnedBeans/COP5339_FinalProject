@@ -33,6 +33,16 @@ public class DiscountedProduct implements Item {
         return product.getPrice() * (1 - discount);
     }
     
+    /**
+     * Retrieves the String of the Discounted Product.
+     * @return the Discounted Product String.
+     */
+    @Override
+    public String toString() {
+        return this.getName();
+    }
+    
+    @Override
     public boolean contains(String text) {
         return product.getName().toLowerCase().contains(text.toLowerCase());
     }

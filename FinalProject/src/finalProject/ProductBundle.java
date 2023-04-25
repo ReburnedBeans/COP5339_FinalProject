@@ -43,6 +43,15 @@ public class ProductBundle implements Item {
         }
         return total;
     }
+    
+    /**
+     * Retrieves the String of the Bundled Product.
+     * @return the Discounted Product String.
+     */
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 
     @Override
     public boolean contains(String text) {

@@ -26,7 +26,7 @@ public class LoginController {
             if (account instanceof Manager) {
                 // If it's a manager account, show the manager view
                 store.currentAccount = account;
-                ManagerViewUI managerViewUI = new ManagerViewUI((Manager) account);
+                ManagerViewUI managerViewUI = new ManagerViewUI((Manager) account, store);
                 managerViewUI.setVisible(true);
             } else {
                 store.currentAccount = account;

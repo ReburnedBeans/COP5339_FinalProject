@@ -30,10 +30,10 @@ class CheckoutController {
             double moneyInput = Double.parseDouble(view.moneyField.getText());
             List<Item> items = new ArrayList<>(store.currentAccount.getCart().getItems());
                         
-            if(cartCost >= moneyInput) { //if the user has enough money.
+            if(cartCost >= moneyInput) { //if the user does not have enough money.
                 JOptionPane.showMessageDialog(null, 
                         "Insufficient money. Please re-enter currency.");
-            } else { //if the user does not have enough money.
+            } else { //if the user has enough money.
                 //Removes items from the Users cart.
                 for (Item product : items) {
                     store.currentAccount.getCart().removeItem(product);

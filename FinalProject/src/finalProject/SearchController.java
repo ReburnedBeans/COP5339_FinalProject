@@ -27,24 +27,37 @@ public class SearchController {
         });
         
         //Adds a button listener for the user searching for an Item.
-        view.addSearchButtonListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Creates ArrayList for items matching Product.
-                ArrayList<Item> matchingProduct = new ArrayList<>();
-                
-                Iterator<Item> iterator = new ProductIterator(store.getItems());
-                
-                while (iterator.hasNext()) {
-                    Item item = iterator.next();
-                    if (item.contains(view.searchField.getText())) {
-                        matchingProduct.add(item);
-                    }
+        view.addSearchButtonListener((ActionEvent e) -> {
+            //Creates ArrayList for items matching Product.
+            ArrayList<Item> matchingProduct = new ArrayList<>();
+            
+            Iterator<Item> iterator = new ProductIterator(store.getItems());
+            
+            while (iterator.hasNext()) {
+                Item item = iterator.next();
+                if (item.contains(view.searchField.getText())) {
+                    matchingProduct.add(item);
                 }
-                
-                view.displayMatchingProducts(matchingProduct);
             }
+            
+            view.displayMatchingProducts(matchingProduct);
         });
+        
+        //adds a button listener for the user adding an item to their cart.
+        view.addItemButtonListener((ActionEvent e) -> {
+            Item selectedItem = (Item) view.itemComboBox.getSelectedItem();
+            int quantity = Integer.parseInt(view.quantityField.getText());
+        
+            for (int i=0; i<quantity; i++) {
+                store.currentAccount.addToCart(selectedItem);
+            }
+            
+            //Returns the User to a dashboard.
+            DashboardViewUI dashView = new DashboardViewUI(store);
+            dashView.setVisible(true);
+            
+            view.setVisible(false); //Hides the AisleViewUI
+        }); 
     }
     
     private final SearchViewUI view;
