@@ -40,10 +40,6 @@ public class Store {
         }
         return null;
     }
-
-    public Iterator<Aisle> iterator() {
-        return this.aisles.iterator();
-    }
     
     public void createAisles() {
         Aisle fruitAisle = new Aisle(1, "Fruit");
@@ -83,6 +79,13 @@ public class Store {
         
         candyAisle.addProduct(candyBundle);
         aisles.add(candyAisle);
+        
+        products = new ArrayList<Item>();
+        for(Aisle a : aisles) {
+            for(Item i : a.getItems()) {
+                products.add(i);
+            }
+        }
     }
     
     /**
@@ -106,7 +109,11 @@ public class Store {
         return transactions;
     }
     
+    public List<Item> getItems() {
+        return products;
+    }
     
+    private List<Item> products;
     private List<Aisle> aisles;
     public Account currentAccount;
     

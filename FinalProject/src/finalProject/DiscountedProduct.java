@@ -33,6 +33,10 @@ public class DiscountedProduct implements Item {
         return product.getPrice() * (1 - discount);
     }
     
+    public boolean contains(String text) {
+        return product.getName().toLowerCase().contains(text.toLowerCase());
+    }
+    
     private final Item product;
     private final double discount;
 }

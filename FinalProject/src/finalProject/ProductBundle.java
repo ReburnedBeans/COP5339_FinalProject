@@ -22,6 +22,7 @@ public class ProductBundle implements Item {
         products.remove(product);
     }
     
+    @Override
     public String getName() {
         String bundleName = "Bundle (";
         for (int i = 0; i < products.size(); i++) {
@@ -34,11 +35,22 @@ public class ProductBundle implements Item {
         return bundleName;
     }
     
+    @Override
     public double getPrice() {
         double total = 0;
         for (Item product : products) {
             total += product.getPrice();
         }
         return total;
+    }
+
+    @Override
+    public boolean contains(String text) {
+        for (Item product : products) {
+            if(product.getName().toLowerCase().contains(text.toLowerCase())) {
+                return true;
+            }    
+        }
+        return false;
     }
 }

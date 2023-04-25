@@ -11,9 +11,12 @@ import java.awt.event.ActionListener;
  * @author rebur
  */
 public class DashboardViewUI extends JFrame {
-
+    /**
+     * Constructor for the View of the Checkout functions.
+     * @param store     the Model of the MVC.
+     */
     public DashboardViewUI(Store store) {
-        // Initialize the UI components
+        //Setup: Creates a Window for the CheckoutViewUI.
         browseByAisleButton = new JButton("Browse by Aisle");
         searchForItemButton = new JButton("Search for Item");
         proceedToCheckoutButton = new JButton("Proceed to Checkout");
@@ -22,7 +25,7 @@ public class DashboardViewUI extends JFrame {
         //Create a new DashboardController instance to handle button clicks
         dashboardController = new DashboardController(this, store);
 
-        // Set up the UI layout
+        //Adds the J-Objects into the Panel.
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(4, 1));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(
@@ -32,7 +35,7 @@ public class DashboardViewUI extends JFrame {
         buttonPanel.add(proceedToCheckoutButton);
         buttonPanel.add(leaveToLoginButton);
 
-        // Set up the button action listeners
+        //Sets up the button action listener
         browseByAisleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,18 +44,20 @@ public class DashboardViewUI extends JFrame {
             }
         });
 
+        //Sets up the button action listener
         searchForItemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the searchForItem method of the DashboardController to handle the button click
+                //Calls the searchForItem method to handle the button click
                 dashboardController.searchForItem();
             }
         });
 
+        //Sets up the button action listener
         proceedToCheckoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the proceedToCheckout method of the DashboardController to handle the button click
+                //Calls the proceedToCheckout method to handle the button click.
                 dashboardController.proceedToCheckout();
             }
         });
@@ -60,7 +65,7 @@ public class DashboardViewUI extends JFrame {
         leaveToLoginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Call the proceedToCheckout method of the DashboardController to handle the button click
+                //Calls the proceedToCheckout method to handle the button click.
                 dashboardController.logout();
             }
         });

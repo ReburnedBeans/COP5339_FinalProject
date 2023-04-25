@@ -19,6 +19,10 @@ public class Product implements Item {
         return price;
     }
     
+    public boolean contains(String text) {
+        return name.toLowerCase().contains(text.toLowerCase());
+    }
+    
     private String name;
     private double price;
 }

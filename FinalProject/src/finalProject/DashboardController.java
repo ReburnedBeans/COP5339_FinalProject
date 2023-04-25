@@ -28,7 +28,7 @@ public class DashboardController {
      * Changes view to the SearchViewUI.
      */
     public void searchForItem() {
-        SearchViewUI searchView = new SearchViewUI();
+        SearchViewUI searchView = new SearchViewUI(store);
         searchView.setVisible(true); //Display SearchViewUI
         view.setVisible(false); //Hides the DashboardViewUI
     }

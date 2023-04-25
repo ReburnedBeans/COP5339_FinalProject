@@ -8,4 +8,6 @@ interface Item {
     public double getPrice();
     
     public String getName();
+
+    public boolean contains(String text);
 }

@@ -16,12 +16,10 @@ public class CheckoutViewUI extends JFrame {
      * @param store     the Model of the MVC.
      */
     public CheckoutViewUI(Store store) {
-        
         //Setup: Creates a Window for the CheckoutViewUI.
         checkoutPanel = new JPanel(new GridLayout(5, 1));
         checkoutPanel.setBorder(BorderFactory.createEmptyBorder(
                 10, 10, 10, 10));
-
         productListPanel = new JPanel(new GridLayout(5, 1));
         
         //creates a JLabel for all of the Items.
