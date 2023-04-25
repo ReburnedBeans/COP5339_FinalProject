@@ -46,15 +46,11 @@ class Aisle {
         return items;
     }
     
-    public void addProduct(Product product) {
-        items.add(product);
-    }
-    
-    public void addDiscountedProduct(DiscountedProduct product) {
-        items.add(product);
-    }
-    
-    public void addBundle(ProductBundle product) {
+    /**
+     * Adds a Product object to the Aisle.
+     * @param product       the Item being added to the Aisle.
+     */
+    public void addProduct(Item product) {
         items.add(product);
     }
 

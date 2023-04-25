@@ -44,6 +44,14 @@ public class Account {
         return cart;
     }
     
+    /**
+     * Adds Item to Cart object. 
+     * @param item      item being added to cart.
+     */
+    public void addToCart(Item item) {
+        cart.addItem(item);
+    }
+    
     private final String username;
     private final String password;
     private Cart cart;

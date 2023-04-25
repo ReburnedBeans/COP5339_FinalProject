@@ -12,7 +12,7 @@ public class DiscountedProduct implements Item {
     }
     
     public String getName() {
-        return "Discounted" + product.getName() + "(" + this.discount + " off)";
+        return "Discounted " + product.getName() + "(" + this.discount + " off)";
     }
     
     public double getPrice() {

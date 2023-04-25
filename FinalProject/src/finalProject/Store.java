@@ -10,6 +10,14 @@ import java.util.List;
  */
 public class Store {
     private List<Aisle> aisles;
+    public Account currentAccount;
+    
+    //List of Accounts in the database.
+    private static final Account[] accounts = {
+        new Account("Alex", "password1", new Cart()),
+        new Account("John", "password2", new Cart()),
+        Manager.getInstance() //Manager is a Singleton.
+    };
 
     public Store() {
         this.aisles = new ArrayList<Aisle>();
@@ -51,7 +59,7 @@ public class Store {
         fruitAisle.addProduct(new Product("Banana", 0.69));
         Product discountingItem = new Product("Orange", 1.19);
         fruitAisle.addProduct(discountingItem);
-        fruitAisle.addDiscountedProduct(new DiscountedProduct(discountingItem, 0.2));
+        fruitAisle.addProduct(new DiscountedProduct(discountingItem, 0.2));
         aisles.add(fruitAisle);
 
         Aisle drinksAisle = new Aisle(2, "Drinks");
@@ -81,7 +89,24 @@ public class Store {
         candyBundle.addProduct(new Product("Gummy Bears", 0.99));
         candyBundle.addProduct(new Product("M&M's", 1.29));
         
-        candyAisle.addBundle(candyBundle);
+        candyAisle.addProduct(candyBundle);
         aisles.add(candyAisle);
+    }
+    
+    /**
+     * Finds and returns account with credentials matching the input.
+     * @param username  the string in the username text box.
+     * @param password  the string in the password text box.
+     * @return account  the account matching the credentials.
+     */
+    public static Account getAccount(String username, String password) {
+        for (Account account : accounts) {
+            if (!account.getUsername().equals(username) 
+                    || !account.checkPassword(password)){
+            } else {
+                return account;
+            }
+        }
+        return null;
     }
 }

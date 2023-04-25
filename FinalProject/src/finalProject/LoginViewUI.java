@@ -25,8 +25,7 @@ public class LoginViewUI extends JFrame {
         loginButton = new JButton("Login");
 
         // Create a new LoginController instance to handle login attempts
-        loginController = new LoginController(new AccountDatabase()
-                , this, store);
+        loginController = new LoginController(this, store);
 
         // Set up the UI layout
         setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
