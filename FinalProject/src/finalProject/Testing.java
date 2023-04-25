@@ -1,5 +1,8 @@
 package finalProject;
 
+import finalProject.models.Store;
+import finalProject.views.LoginViewUI;
+
 /**
  *
  * @author rebur
