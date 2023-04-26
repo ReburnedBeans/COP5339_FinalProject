@@ -88,5 +88,3 @@ public class DashboardViewUI extends JFrame {
     private final JButton leaveToLoginButton;
     private DashboardController dashboardController;
 }
-
-

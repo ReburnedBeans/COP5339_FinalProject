@@ -42,4 +42,6 @@ public class Transaction {
     private Account account;
     private List<Item> products;
     private double total;
+
+    
 }

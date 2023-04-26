@@ -1,6 +1,6 @@
 package finalProject.controllers;
 
-import finalProject.CheckoutViewUI;
+import finalProject.views.CheckoutViewUI;
 import finalProject.views.DashboardViewUI;
 import finalProject.views.LoginViewUI;
 import finalProject.views.SearchViewUI;
@@ -61,4 +61,3 @@ public class DashboardController {
     private final DashboardViewUI view;
     private final Store store;
 }
-

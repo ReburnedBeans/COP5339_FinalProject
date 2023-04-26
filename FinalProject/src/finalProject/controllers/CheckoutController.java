@@ -1,5 +1,6 @@
-package finalProject;
+package finalProject.controllers;
 
+import finalProject.views.CheckoutViewUI;
 import finalProject.models.Transaction;
 import finalProject.models.Store;
 import finalProject.views.DashboardViewUI;
@@ -13,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Alex Reburn
  */
-class CheckoutController {
+public class CheckoutController {
     /**
      * Constructor that creates the Controller function.
      * @param view      the current CheckoutViewUI.

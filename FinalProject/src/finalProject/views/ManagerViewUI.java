@@ -2,7 +2,6 @@ package finalProject.views;
 
 import finalProject.models.Store;
 import finalProject.controllers.ManagerController;
-import finalProject.models.Manager;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -11,13 +10,14 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class ManagerViewUI extends JFrame {
     private JButton transactionButton;
     private JButton stockButton;
     private JButton financeButton;
     private ManagerController managerController;
+    private final JButton leaveToLoginButton;
 
     public ManagerViewUI(Store store) {
 
@@ -25,15 +25,17 @@ public class ManagerViewUI extends JFrame {
         transactionButton = new JButton("View Transaction History");
         stockButton = new JButton("Stock Shelves");
         financeButton = new JButton("View Finances");
+        leaveToLoginButton = new JButton("Logout");
         
         // Create a new ManagerController instance to handle button clicks
         managerController = new ManagerController(this, store);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(3, 1));
+        buttonPanel.setLayout(new GridLayout(4, 1));
         buttonPanel.add(transactionButton);
         buttonPanel.add(stockButton);
         buttonPanel.add(financeButton);
+        buttonPanel.add(leaveToLoginButton);
         
         // Set up the button action listeners
         transactionButton.addActionListener(new ActionListener() {
@@ -62,6 +64,15 @@ public class ManagerViewUI extends JFrame {
             }
         });
         
+        // Set up the button action listeners
+        leaveToLoginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Call the browseByAisle method of the DashboardController to handle the button click
+                managerController.logout();
+            }
+        });
+        
         
         add(buttonPanel, BorderLayout.CENTER);
         
@@ -74,5 +85,3 @@ public class ManagerViewUI extends JFrame {
         setVisible(true);
     }
 }
-
-

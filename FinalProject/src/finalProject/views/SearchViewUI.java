@@ -3,6 +3,7 @@ package finalProject.views;
 import finalProject.models.Store;
 import finalProject.controllers.SearchController;
 import finalProject.models.Item;
+import finalProject.models.ProductIterator;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -15,11 +16,15 @@ import javax.swing.*;
  * @author Alex Reburn
  */
 public class SearchViewUI extends JFrame {
+
+    private Store store;
     /**
      * Constructor creates a ViewUI for the Search.
      * @param store     the Model of the MVC.
      */
     public SearchViewUI(Store store) {
+        this.store = store;
+        
         // Set up the UI layout
         setLayout(new BoxLayout(getContentPane(), BoxLayout.PAGE_AXIS));
         add(new JLabel("Search View"));
@@ -37,7 +42,7 @@ public class SearchViewUI extends JFrame {
         addToCartButton = new JButton("Add to Cart");
         itemComboBox = new JComboBox();
         
-        //Create a new AisleController instance to handle button clicks.
+        //Create a new SearchController instance to handle button clicks.
         SearchController searchController = new SearchController(this, store);
 
         //Adds the J-Objects into the Panel.
@@ -113,7 +118,10 @@ public class SearchViewUI extends JFrame {
         JLabel quantityLabel = new JLabel("Enter the quantity:");
         quantityField = new JTextField();
         cancelButton = new JButton("Cancel");
-
+        
+        //Create a new SearchController instance to handle button clicks.
+        SearchController searchController = new SearchController(this, store);
+        
         //Adds the J-Objects to the Panel.
         searchPanel.add(itemLabel);
         searchPanel.add(itemComboBox);
@@ -138,7 +146,4 @@ public class SearchViewUI extends JFrame {
     public JTextField searchField;
     public JTextField quantityField;
     public JComboBox<Item> itemComboBox;
-
-    
 }
-

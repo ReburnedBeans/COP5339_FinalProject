@@ -10,12 +10,11 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class LoginController {
 
     public LoginController( LoginViewUI view, Store store) {
-        //this.store = accountDatabase;
         this.view = view;
         this.store = store;
     }
@@ -48,4 +47,3 @@ public class LoginController {
     private LoginViewUI view;
     private Store store;
 }
-

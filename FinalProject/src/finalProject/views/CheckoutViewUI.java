@@ -1,5 +1,6 @@
-package finalProject;
+package finalProject.views;
 
+import finalProject.controllers.CheckoutController;
 import finalProject.models.Store;
 import finalProject.models.Item;
 import java.awt.BorderLayout;

@@ -5,12 +5,11 @@ import finalProject.views.StockViewUI;
 import finalProject.models.Store;
 import finalProject.views.TransactionViewUI;
 import finalProject.views.FinanceViewUI;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import finalProject.views.LoginViewUI;
 
 /**
  *
- * @author rebur
+ * @author Alex Reburn
  */
 public class ManagerController {
     private final ManagerViewUI view;
@@ -32,7 +31,7 @@ public class ManagerController {
     
     public void viewStock() {
         // Create and show the StockViewUI
-        StockViewUI stockView = new StockViewUI();
+        StockViewUI stockView = new StockViewUI(store);
         stockView.setVisible(true);
 
         // Hide the ManagerViewUI
@@ -41,11 +40,16 @@ public class ManagerController {
 
     public void viewFinances() {
         // Create and show the FinanceViewUI
-        FinanceViewUI financeView = new FinanceViewUI();
+        FinanceViewUI financeView = new FinanceViewUI(store);
         financeView.setVisible(true);
 
         // Hide the ManagerViewUI
         view.setVisible(false);
     }
-}
 
+    public void logout() {
+        LoginViewUI checkoutView = new LoginViewUI(store);
+        checkoutView.setVisible(true); //Display LoginViewUI
+        view.setVisible(false); //Hides the DashboardViewUI
+    }
+}

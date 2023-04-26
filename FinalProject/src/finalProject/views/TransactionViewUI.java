@@ -64,4 +64,3 @@ public class TransactionViewUI extends JFrame {
     private JPanel transactionListPanel;
     private final JButton leaveButton;
 }
-
