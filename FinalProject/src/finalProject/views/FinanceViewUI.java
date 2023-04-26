@@ -22,17 +22,22 @@ public class FinanceViewUI extends JFrame {
                 10, 10, 10, 10));
         transactionListPanel = new JPanel(new GridLayout(5, 1));
         
+        double totalCost = 0;
+        
         //creates a JLabel for all of the Items.
         for (Transaction t : store.getTransactions()) {
             if("manager".equals(t.getName())) {
                 transactionListPanel.add(new JLabel("Account: " + t.getName() 
                     + ", Money: -" + t.getTotal()));
+                totalCost -= t.getTotal();
             } else {
                 transactionListPanel.add(new JLabel("Account: " + t.getName() 
                     + ", Money: " + t.getTotal()));
+                totalCost += t.getTotal();
             }
         }
         
+        totalLabel = new JLabel("Total: " + totalCost);
         //Setup: Creating the J-Objects within the Panel.
         leaveButton = new JButton("Leave");
 
@@ -42,6 +47,7 @@ public class FinanceViewUI extends JFrame {
 
         //Adds the J-Objects into the Panel.
         historyPanel.add(transactionListPanel);
+        historyPanel.add(totalLabel);
         historyPanel.add(leaveButton);
         
         //Creates the Container.
@@ -66,6 +72,7 @@ public class FinanceViewUI extends JFrame {
     }
    
     private Container containerPanel;
+    private JLabel totalLabel;
     private JPanel historyPanel;
     private JPanel transactionListPanel;
     private final JButton leaveButton;

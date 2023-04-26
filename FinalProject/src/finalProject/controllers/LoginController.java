@@ -33,6 +33,8 @@ public class LoginController {
                 store.currentAccount = account;
                 ManagerViewUI managerViewUI = new ManagerViewUI(store);
                 managerViewUI.setVisible(true);
+                
+                view.setVisible(false);
             } else {
                 store.currentAccount = account;
                 // If it's a regular user account, show the user dashboard view
